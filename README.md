@@ -23,9 +23,9 @@ The core is creating a `node_modules` volume in docker compose so there's a sepa
       - ~/Code:/code
 ```
 
-Rebuilding (`docker-compose build web`) installs deps there, and we can write a wrapper to run the approprite `npm link` command.
-```yaml
-    command: |
-      npm link /code/lodash
-      npm run watch
+Rebuilding (`docker-compose build web`) installs deps there, and we can write a wrapper to run the approprite make the package available.
+```sh
+ln -s /code/lodash node_modules/lodash
+
+npm run watch
 ```
