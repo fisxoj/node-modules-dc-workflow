@@ -3,7 +3,7 @@ services:
   web:
     build: .
     command: |
-      npm link ../lodash
+      npm link /code/lodash
       npm run watch
     volumes:
       - .:/app/
