@@ -1,0 +1,15 @@
+version: '2'
+services:
+  web:
+    build: .
+    command: |
+      npm link ../lodash
+      npm run watch
+    volumes:
+      - .:/app/
+      - /app/node_modules
+      # Change this to point to a folder where you have
+      # packages to use checked out
+      - ~/Code:/code
+    ports:
+      - "3000:3000"
